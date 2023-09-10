@@ -12,12 +12,21 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import kotlin.math.roundToInt
 
 object CatOverlay {
-    private val cat = ResourceLocation("ambientaddons", "kittycatmodule.png")
+    private val upgrade = ResourceLocation("ambientaddons", "upgrade.png")
+    private val serena = ResourceLocation("ambientaddons", "serena.png")
+    private val lucy = ResourceLocation("ambientaddons", "lucy.png")
+    private val hank = ResourceLocation("ambientaddons", "hank.png")
+
+    private var cat =        if (config.cat == 1) {upgrade}
+                        else if (config.cat == 2) {serena}
+                        else if (config.cat == 3) {lucy}
+                        else {hank}
+
     val element = GuiElement("cat", 100, 100)
 
     @SubscribeEvent
     fun onRenderOverlay(event: RenderGameOverlayEvent) {
-        if ((!config.cat && mc.currentScreen !is MoveGui) ||
+        if ((config.cat == 0 && mc.currentScreen !is MoveGui) ||
             event.type != RenderGameOverlayEvent.ElementType.TEXT
         ) return
         GlStateManager.pushMatrix()

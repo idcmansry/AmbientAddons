@@ -56,7 +56,7 @@ object Config : Vigilant(
 
     var maskWarning = false
     var thunderWarning = false
-    var cat = true
+    var cat = 1
     var witherShieldDisplay = 0
     var spiritBowTimer = 0
 
@@ -221,7 +221,7 @@ object Config : Vigilant(
                 selector(
                     ::starredHighlight,
                     name = "Starred mob highlight",
-                    description = "Show bat secrets",
+                    description = "Show starred mobs",
                     options = listOf("Off", "Highlight", "ESP")
                 )
 
@@ -282,10 +282,11 @@ object Config : Vigilant(
             ) {
                 currentGui = MoveGui()
             }
-            switch(
+            selector(
                 ::cat,
                 name = "Cat",
                 description = "Show catplague's awesome cat upgrade! Disabling is a crime.",
+                options = listOf("Off", "Upgrade", "Serena", "Lucy", "Hank")
             )
             selector(
                 ::witherShieldDisplay,
