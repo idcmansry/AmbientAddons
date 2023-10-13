@@ -36,7 +36,7 @@ import java.io.File
 @Mod(
     modid = "ambientaddons",
     name = "AmbientAddons",
-    version = "1.0.10",
+    version = "1.0.11",
     useMetadata = true,
     clientSideOnly = true
 )
@@ -122,6 +122,7 @@ class AmbientAddons {
             "thirdPersonKey" to KeyBinding("Toggle third-person perspective", Keyboard.KEY_NONE, "AmbientAddons"),
             "secondPersonKey" to KeyBinding("Toggle second-person perspective", Keyboard.KEY_NONE, "AmbientAddons"),
             "spamKey" to KeyBinding("Send last message in party chat", Keyboard.KEY_NONE, "AmbientAddons"),
+            "leftAcKey" to KeyBinding("Left click autoclicker", Keyboard.KEY_NONE, "AmbientAddons"),
             "acKey" to KeyBinding("Right click autoclicker", Keyboard.KEY_NONE, "AmbientAddons"),
             "sensitivityKey" to KeyBinding("Toggle 0 Sensitivity", Keyboard.KEY_NONE, "AmbientAddons"),
             "fovKey" to KeyBinding("Toggle Quake Pro", Keyboard.KEY_NONE, "AmbientAddons"),
