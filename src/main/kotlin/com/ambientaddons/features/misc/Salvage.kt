@@ -23,7 +23,6 @@ import java.awt.Color
 
 object Salvage {
 
-    /*
     private var status: SalvageStatus = SalvageStatus.Idle
     private const val salvageSlot = 31
     private const val clickDelay = 300
@@ -33,12 +32,12 @@ object Salvage {
     private val canClick: Boolean
         get() = (System.currentTimeMillis() - nextClickTime) >= 0
 
-
+/*
     @SubscribeEvent
     fun onGuiDraw(event: GuiScreenEvent.DrawScreenEvent) {
         if (!SBLocation.inSkyblock) return
         val chest = event.gui?.chest ?: return
-        if (config.salvageMode < 3 || chest.lowerChestInventory.name != "Salvage Item") return
+        if (config.salvageMode < 3 || chest.lowerChestInventory.name != "Salvage Items") return
         val color = chest.lowerChestInventory.items.last()?.itemDamage
         if (status == SalvageStatus.Waiting && color == 5) {
             mc.playerController.windowClick(
@@ -69,6 +68,7 @@ object Salvage {
             }
         }
     }
+*/
 
     @SubscribeEvent
     fun onContainerOpen(event: GuiOpenEvent) {
@@ -82,19 +82,19 @@ object Salvage {
         if (!SBLocation.inSkyblock) return
         if (config.salvageMode < 2 || event.slot == null) return
         if (!isSlotInInventory(event.gui, event.slot)) return
-        if (status != SalvageStatus.Idle
-            || getSalvageStrategy(event.slot.stack ?: return) == SalvageStrategy.Block
-            || !canClick
+        if (// status != SalvageStatus.Idle ||
+                getSalvageStrategy(event.slot.stack ?: return) == SalvageStrategy.Block
+            // || !canClick
         ) {
             event.isCanceled = true
             mc.thePlayer.playSound("random.pop", 1f, 0f)
-        } else {
+        } /* else {
             event.isCanceled = true
             mc.playerController.windowClick(
                 event.container.windowId, event.slotId, 0, 1, mc.thePlayer
             )
             status = SalvageStatus.Waiting
-        }
+        } */
     }
 
 
@@ -129,8 +129,6 @@ object Salvage {
     }
 
     private fun isSlotInInventory(gui: GuiContainer, slot: Slot): Boolean =
-        gui.chest?.lowerChestInventory?.let { it.name == "Salvage Item" && it != slot.inventory } ?: false
+        gui.chest?.lowerChestInventory?.let { it.name == "Salvage Items" && it != slot.inventory } ?: false
 
-
-     */
 }
