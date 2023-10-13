@@ -12,8 +12,6 @@ object SalvageCommand {
     private val armorSuffixes = listOf("_HELMET", "_CHESTPLATE", "_LEGGINGS", "_BOOTS")
 
     fun processCommand(args: List<String>) {
-        UChat.chat("§aDisabled feature, sorry!".withModPrefix())
-        return
         when (args.getOrNull(0)) {
             "auto" -> {
                 val item = args[1].uppercase()

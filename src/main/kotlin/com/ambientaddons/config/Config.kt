@@ -99,7 +99,7 @@ object Config : Vigilant(
                     ::salvageMode,
                     name = "Salvaging features",
                     description = "Various modes to improve salvaging. §c/ambient salvage §7to configure.",
-                    options = listOf("Off", "Highlight", "Block misclicks", "Legit autosalvage", "Unlegit autosalvage")
+                    options = listOf("Off", "Highlight", "Block misclicks"/*, "Legit autosalvage", "Unlegit autosalvage"*/)
                 )
                 switch(
                     ::topQualityStrategy,
